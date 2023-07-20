@@ -63,11 +63,13 @@ const pizzas = [
 console.log ("a) Las pizzas que tienen un id impar son:");
 console.log (" ");
 
-const pizzasIdImpar = pizzas.filter ( (pizza) => {
-  if (pizza.id % 2 == 1) {
-    console.log(` (id: ${pizza.id}) - ${pizza.nombre}: 
+const idImpar = pizzas.filter ( (pizza) => {
+  return pizza.id % 2 === 1; 
+});
+
+idImpar.forEach ((pizza) => {
+  console.log(` (id: ${pizza.id}) - ${pizza.nombre}: 
     Ingredientes: ${pizza.ingredientes.join(", ")}.`);
-  } 
 });
 
 console.log (" ");
@@ -106,8 +108,11 @@ console.log (" ");
 console.log ("d) Todos los ingredientes de cada pizza:");
 console.log (" ");
 
-const pizzasEIngredientes = pizzas.map ( (pizza) => {
-  return console.log (`La ${pizza.nombre} tiene: ${pizza.ingredientes.join(", ")}.`);
+const pizzasEIngredientes = pizzas.forEach ((pizza) => {
+  console.log (`${pizza.nombre}: `);
+  pizza.ingredientes.forEach ((ingrediente) => {
+    console.log (`- ${ingrediente}`)
+  });
 });
 
 console.log (" ");
